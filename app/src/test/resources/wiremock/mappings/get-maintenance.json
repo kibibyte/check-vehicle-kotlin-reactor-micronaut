@@ -1,0 +1,26 @@
+{
+  "mappings" : [
+    {
+      "request" : {
+        "method" : "GET",
+        "urlPattern" : "/cars/existing_vin"
+      },
+      "response" : {
+        "status" : 200,
+        "headers" : {
+          "Content-Type" : "application/json"
+        },
+        "bodyFileName" : "maintenance-response.json"
+      }
+    },
+    {
+      "request" : {
+        "method" : "GET",
+        "urlPattern" : "/cars/vin_error_500"
+      },
+      "response" : {
+        "status" : 500
+      }
+    }
+  ]
+}

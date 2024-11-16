@@ -1,0 +1,18 @@
+plugins {
+  id("groovy")
+  id("io.micronaut.library")
+  id("org.jetbrains.kotlin.jvm")
+  id("com.google.devtools.ksp")
+}
+
+dependencies {
+  implementation("io.micronaut.reactor:micronaut-reactor")
+  implementation("org.apache.commons:commons-lang3:${commonsLang3Version}")
+
+  testImplementation("org.spockframework:spock-core")
+  testImplementation("io.projectreactor:reactor-test")
+}
+
+kotlin {
+  jvmToolchain(17)
+}

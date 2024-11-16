@@ -1,0 +1,26 @@
+{
+  "mappings" : [
+    {
+      "request" : {
+        "method" : "GET",
+        "urlPattern" : "/accidents/report\\?vin=existing_vin"
+      },
+      "response" : {
+        "status" : 200,
+        "headers" : {
+          "Content-Type" : "application/json"
+        },
+        "bodyFileName" : "insurance-response.json"
+      }
+    },
+    {
+      "request" : {
+        "method" : "GET",
+        "urlPattern" : "/accidents/report\\?vin=vin_error_500"
+      },
+      "response" : {
+        "status" : 500
+      }
+    }
+  ]
+}

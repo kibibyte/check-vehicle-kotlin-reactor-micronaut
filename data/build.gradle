@@ -1,0 +1,15 @@
+plugins {
+  id("io.micronaut.library")
+  id("org.jetbrains.kotlin.jvm")
+  id("com.google.devtools.ksp")
+}
+
+dependencies {
+  implementation project(':domain')
+
+  implementation("io.micronaut.serde:micronaut-serde-jackson")
+  implementation("io.micronaut:micronaut-http-client")
+  implementation("io.micronaut.reactor:micronaut-reactor")
+
+  annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
+}

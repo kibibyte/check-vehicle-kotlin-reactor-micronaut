@@ -1,0 +1,19 @@
+version : "3.8"
+services :
+  vehicle-status-app :
+    build :
+      context : .
+      dockerfile : Dockerfile
+    ports :
+      - "8080:8080"
+    depends_on :
+      - wiremock
+    environment :
+      MICRONAUT_HTTP_SERVICES_INSURANCE_URL : http://wiremock:8080
+      MICRONAUT_HTTP_SERVICES_MAINTENANCE_URL : http://wiremock:8080
+  wiremock :
+    image : "wiremock/wiremock:latest"
+    volumes :
+      - ./app/src/test/resources/wiremock/__files:/home/wiremock/__files
+      - ./app/src/test/resources/wiremock/mappings:/home/wiremock/mappings
+    entrypoint : [ "/docker-entrypoint.sh", "--global-response-templating", "--disable-gzip", "--verbose" ]
