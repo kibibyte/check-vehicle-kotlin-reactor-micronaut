@@ -1,4 +1,4 @@
-# Check vehicle status application (Kotlin. Reactor. Micronaut)
+# Check vehicle status application (Kotlin, Reactor. Micronaut)
 
 ## Modules
 
