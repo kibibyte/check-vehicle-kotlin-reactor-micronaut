@@ -5,15 +5,14 @@ import io.micronaut.http.MediaType
 import io.micronaut.http.annotation.Body
 import io.micronaut.http.annotation.Controller
 import io.micronaut.http.annotation.Post
-import jakarta.validation.Valid
 import org.slf4j.MDC
 import reactor.core.publisher.Mono
 
 @Controller
-open class CheckCarController(var checkCarService: CheckCarService) {
+class CheckCarController(private var checkCarService: CheckCarService) {
 
   @Post(value = "/check", consumes = [MediaType.APPLICATION_JSON], produces = [MediaType.APPLICATION_JSON])
-  open fun check(@Valid @Body request: CheckCarRequest): Mono<CheckCarResponse> {
+  fun check(@Body request: CheckCarRequest): Mono<CheckCarResponse> {
     val checkCarQuery = CheckCarQuery(request.vin, request.features);
 
     return checkCarService.check(checkCarQuery)
